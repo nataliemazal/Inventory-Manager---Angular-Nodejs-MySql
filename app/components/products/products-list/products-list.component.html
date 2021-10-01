@@ -1,0 +1,29 @@
+<div class="products-list">
+    <div class=" action " >
+      <button mat-raised-button color="primary" (click)="sortByUnitsBtn($event)">sort by updated date</button>
+    <div>
+    <input type="text" placeholder="Search by Product Name" (input)="handleSearchByProductName($event.target)" >
+</div>
+</div>
+    <table>
+        <tr>
+            <th>Product name</th>
+            <th>Price</th>
+            <th>Update date</th>
+            <th>Units in stock</th>
+            <th>Update</th>
+        </tr>
+        <tr *ngFor="let p of products" > 
+        <td >{{p.name}}</td> 
+        <td >{{p.price}} </td>
+        <td >{{p.update_date}}</td>
+        <td >{{p.units}}</td>
+        <td >
+            <input type="number" value= 0 id = {{p.id}} (input)="handleUpdateUnits($event.target)">
+            <br>
+            <button mat-stroked-button color="primary" (click)="handleUpdateUnitsBtn($event)">update</button>
+
+        </td>
+        </tr>
+    </table>
+</div>
